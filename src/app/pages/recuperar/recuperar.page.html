@@ -1,0 +1,26 @@
+
+  <ion-header [translucent]="true">
+    <ion-toolbar color="medium">
+      <ion-img src="assets/icon/logoduoc.png"></ion-img>
+    </ion-toolbar>
+    <ion-button size="small" id="Bvolver" color="warning"  [routerLink]="['/login']">
+      <ion-icon slot="start" name="arrow-back">
+      </ion-icon>
+    </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true"> 
+
+ <h1 id="labelR">Recuperar contraseña</h1>
+
+    <ion-card id="colorCard">  
+      <ion-card-content>
+        <ion-item>    
+          <ion-input [(ngModel)]="email" label="Correo" labelPlacement="floating" placeholder="Introduce tu correo" ></ion-input>
+        </ion-item>  
+        <ion-button id="aceptar" (click)="resetPassword()" size="small"color="warning">
+          Aceptar
+        </ion-button>  
+      </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+    <ion-img src="assets/icon/logoduoc.png"></ion-img>
+  </ion-toolbar>
+  <ion-button size="small" id="Bvolver" color="warning"  [routerLink]="['/login']">
+    <ion-icon slot="start" name="arrow-back"></ion-icon>
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<form [formGroup]="form">
+  <ion-card id="formLogin" id="ColorCard"color="dark">
+    <ion-card-content>
+      <ion-item>    
+        <ion-input formControlName="nombre" [(ngModel)]="nombre1" label="nombre" labelPlacement="floating" placeholder="Introduce tu nombre" ></ion-input>
+      </ion-item>  
+
+      <ion-item>    
+        <ion-input formControlName="email" [(ngModel)]="email1" label="Correo" labelPlacement="floating" placeholder="Introduce tu correo" ></ion-input>
+      </ion-item>  
+
+      <ion-item>
+        <ion-input formControlName="password"  type="password" label="Contraseña" labelPlacement="floating" placeholder="Introduce tu contraseña"></ion-input>
+      </ion-item> 
+      <ion-button (click)="registro()" color="warning">
+        <ion-icon name="person"></ion-icon>
+        Registrarse
+      </ion-button>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</form>
+
+ 
+</ion-content>

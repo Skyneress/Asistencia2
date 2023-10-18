@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+    <ion-img src="assets/icon/logoduoc.png"></ion-img>
+  </ion-toolbar>
+  <ion-button (click)="logout()" size="small" id="Bvolver" color="warning"  >
+    <ion-icon slot="start" name="exit">
+    </ion-icon>
+  </ion-button>
+
+
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-item>
+  <ion-label id="labelB">
+    <h1>Bienvenido</h1>
+   </ion-label>
+ </ion-item>
+
+ <ion-card color="">
+  <ion-card-header *ngFor="let keyValuePair of usuario | keyvalue">
+    <ion-card-title>{{ keyValuePair.key }}</ion-card-title>
+    <ion-card-subtitle>{{ keyValuePair.value }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-icon size="large" name="briefcase"></ion-icon>
+        </ion-thumbnail>
+        <ion-button color="dark" size="medium" fill="clear"[routerLink]="['/perfil']">Carrera</ion-button> 
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-icon size="large" name="book"></ion-icon>
+        </ion-thumbnail>
+        <ion-button color="dark" size="medium" fill="clear" [routerLink]="['/asig-asis']">Asignatura</ion-button>      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-icon size="large" name="bookmarks"></ion-icon>
+        </ion-thumbnail>
+        <ion-button color="dark" size="medium" fill="clear">Asistencia</ion-button> 
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <ion-icon size="large" name="journal"></ion-icon>
+        </ion-thumbnail>
+        <ion-button color="dark" size="medium" fill="clear">Lista</ion-button> 
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+  <ion-button id="scanner" color="warning" [routerLink]="['/asistencia']">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Registrar asistencia
+  </ion-button>
+</ion-card>
+ 
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+    <ion-img src="assets/icon/logoduoc.png"></ion-img>
+  </ion-toolbar>
+
+  <ion-button size="small" id="Bvolver" color="warning" [routerLink]="['/menu']">
+    <ion-icon slot="start" name="arrow-back"></ion-icon>
+  </ion-button>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-label id="labelB">
+      <h1>Registro asistencia</h1>
+     </ion-label>
+   </ion-item>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header>
+          <ion-label id="labelN">Nombre</ion-label>
+          
+        </ion-list-header>
+        <ion-item *ngFor="let a of arrayAsig; let i = index" (click)="enviar(a,i)" >
+          <ion-label> {{a.leccion}} 
+            <ion-button id="Bf" size="small" color="warning" >
+              <ion-icon name="caret-down-outline" ></ion-icon>
+            </ion-button></ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
