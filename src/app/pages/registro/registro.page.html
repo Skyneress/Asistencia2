@@ -21,9 +21,9 @@
       </ion-item>  
 
       <ion-item>
-        <ion-input formControlName="password"  type="password" label="Contraseña" labelPlacement="floating" placeholder="Introduce tu contraseña"></ion-input>
+        <ion-input formControlName="password" [(ngModel)]="password"  type="password" label="Contraseña" labelPlacement="floating" placeholder="Introduce tu contraseña"></ion-input>
       </ion-item> 
-      <ion-button (click)="registro()" color="warning">
+      <ion-button size="small" id="botonregistrar" (click)="registro()" color="warning">
         <ion-icon name="person"></ion-icon>
         Registrarse
       </ion-button>

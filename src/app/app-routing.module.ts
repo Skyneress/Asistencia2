@@ -45,8 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    canActivate:[AuthGuard],
-    data:{ authGuardPipe : redirectToLogin },
+    
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
@@ -66,7 +65,11 @@ const routes: Routes = [
     canActivate:[AuthGuard],
     data:{ authGuardPipe : redirectToLogin },
     loadChildren: () => import('./pages/info-asig/info-asig.module').then( m => m.InfoAsigPageModule)
+  },  {
+    path: 'detalles',
+    loadChildren: () => import('./modals/detalles/detalles.module').then( m => m.DetallesPageModule)
   },
+
 ];
 
 @NgModule({

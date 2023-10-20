@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { DetallesPage } from 'src/app/modals/detalles/detalles.page';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
 
@@ -25,7 +27,8 @@ export class LoginPage implements OnInit {
               private router:Router,
               private auth: AuthService,
               private formbuilder: FormBuilder,
-              private helper: HelperService
+              private helper: HelperService,
+              private modalControlador: ModalController
     ) {}
 
   ngOnInit() {
@@ -54,6 +57,18 @@ export class LoginPage implements OnInit {
       this.helper.showAlert("datos incorrectos","Informacion")
     }
   } 
+
+
+
+  async openModal() {
+    const modal = await this.modalControlador.create({
+      component: DetallesPage,
+    });
+    modal.present();
+  
+    const { data, role } = await modal.onWillDismiss();
+  
+  }
 
   
 }

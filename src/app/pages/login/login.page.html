@@ -28,7 +28,7 @@ ion-card-content
         <ion-icon name="person"></ion-icon>
         Registro
       </ion-button>
-      <ion-button [routerLink]="'/recuperar'" color="warning">
+      <ion-button (click)="openModal()" color="warning">
         <ion-icon name="person"></ion-icon>
         Recuperar contraseña
       </ion-button>
