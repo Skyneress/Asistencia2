@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let i of dataQr">
+    <ion-card-header>
+
+    <ion-card-title> {{dataQr.asignatura}}</ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Asignatura: {{dataQr.asignatura}}  </p>
+      <p>Docente: {{dataQr.docente}}</p>
+      <p>Fecha:  {{dataQr.fecha}}</p>
+      <p>Hora {{dataQr.hora}}</p>
+      <p>Sala: {{dataQr.sala}} </p>
+      <p>Seccion: {{dataQr.seccion}}  </p>
+      <p>Leccion: {{dataQr.leccion}}  </p>
+
+      <!-- ion-button shape="round" (click)="registroA()">guardar</ion-button> -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

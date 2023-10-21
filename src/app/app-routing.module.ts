@@ -69,6 +69,10 @@ const routes: Routes = [
     path: 'detalles',
     loadChildren: () => import('./modals/detalles/detalles.module').then( m => m.DetallesPageModule)
   },
+  {
+    path: 'scanner',
+    loadChildren: () => import('./modals/scanner/scanner.module').then( m => m.ScannerPageModule)
+  },
 
 ];
 
