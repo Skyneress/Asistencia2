@@ -8,29 +8,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Confirmar asistencia</ion-card-title>
-    </ion-card-header>
-  
-
-      <ion-item>
-        <ion-label>Asignatura</ion-label>
-      </ion-item>  
-      <ion-card-content>
-        <ion-checkbox color="primary" [indeterminate]="true">Confirma tu asistencia</ion-checkbox>    </ion-card-content>    
-      <ion-item>
-        <ion-label>
-          <h1>Fecha</h1>
-          <p><ion-datetime-button datetime="datetime"></ion-datetime-button>
-
-            <ion-modal [keepContentsMounted]="true">
-              <ng-template>
-                <ion-datetime id="datetime"></ion-datetime>
-              </ng-template>
-            </ion-modal></p>
-        </ion-label>
-      </ion-item>
-  </ion-card>
+  <ion-item>
+    <ion-label id="labelB">
+      <h1>Asistencia</h1>
+     </ion-label>
+   </ion-item>
+   <ion-card>
+     <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />  
+     <ion-card-content>
+       <ion-button id="T" (click)="scan()" size="medium" color="primary">Escannear QR</ion-button>
+     </ion-card-content>
+   </ion-card>
 </ion-content>
 

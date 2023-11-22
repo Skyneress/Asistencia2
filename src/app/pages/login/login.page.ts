@@ -40,23 +40,29 @@ export class LoginPage implements OnInit {
   }
 
 
-  login(){
-
+  login() {
     try {
-      if (this.form.valid){
-        const {email,password}=this.form.getRawValue();
-        this.auth.login(email,password)
-        .then(()=> {
-          this.router.navigate(["/menu"]);
+      if (this.form.valid) {
+        const { email, password } = this.form.getRawValue();
+  
+
+        this.auth.login(email, password)
+          .then(() => {
+            this.router.navigate(["/menu"]);
           })
+          .catch((loginError) => {
+            console.error("Error en el inicio de sesión:", loginError);
+            this.helper.showAlert("Error en el inicio de sesión", "Información");
+          });
       } else {
-        
-        }
+
+        this.helper.showAlert("Por favor, complete todos los campos del formulario correctamente", "Información");
+      }
     } catch (error) {
-      console.log(error);
-      this.helper.showAlert("datos incorrectos","Informacion")
+      console.error("Error en la función de inicio de sesión:", error);
+      this.helper.showAlert("Error inesperado", "Información");
     }
-  } 
+  }
 
 
 

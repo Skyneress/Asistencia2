@@ -6,6 +6,7 @@ import { AnimationController, IonCard } from '@ionic/angular';
 import { HelperService } from 'src/app/services/helper.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { WeatherService } from 'src/app/services/weather.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class MenuPage implements OnInit {
   private animation!: Animation;
-
+  weatherData: any;
   usuario:any;
   nombreUsuario:string = "";
 
@@ -25,7 +26,8 @@ export class MenuPage implements OnInit {
       private animationCtrl: AnimationController,
       private auth: AuthService,
       private helper:HelperService,
-      private storage:StorageService
+      private storage:StorageService,
+      private weatherService: WeatherService
       
       ) { }
   
@@ -78,4 +80,10 @@ export class MenuPage implements OnInit {
     }
 }
 
+
+getWeather() {
+  this.weatherService.getWeather().subscribe((data) => {
+    this.weatherData = data;
+  });
+}
 }

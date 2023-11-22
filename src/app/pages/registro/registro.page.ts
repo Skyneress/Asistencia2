@@ -44,15 +44,10 @@ export class RegistroPage implements OnInit {
   }
 
   async registro() {
-    // Verifica si la contraseña tiene al menos 8 caracteres
     if (this.password.length < 6) {
-      const alert = await this.alert.create({
-        header: 'Error',
-        message: 'La contraseña debe ser mayor de 6 digitos.',
-        buttons: ['OK']
-      });
+      const alert = await this.helper.showAlert("Contraseña debe tener como minimo 6 digitos","Error de registro");
       await alert.present();
-      return; 
+      return;
     }
   
     const loader = await this.helper.showLoader("Cargando");
@@ -60,6 +55,8 @@ export class RegistroPage implements OnInit {
     try {
       if (this.form.valid) {
         const { email, password } = this.form.getRawValue();
+  
+
         this.auth.register(email, password)
           .then(async () => {
             var user = [{
@@ -72,13 +69,25 @@ export class RegistroPage implements OnInit {
             await loader.dismiss();
             await this.helper.showAlert("Usuario registrado correctamente", "Información");
           })
+          .catch(async (registrationError) => {
+            await loader.dismiss();
+            console.error("Error en el registro:", registrationError);
+            this.helper.showAlert("Error en el registro", "Información");
+          });
       } else {
         await loader.dismiss();
-        this.helper.showAlert("Por favor complete todos los campos", "Información");
+        this.helper.showAlert("Por favor complete todos los campos correctamente", "Información");
       }
     } catch (error) {
-      console.log(error);
+      console.error("Error en la función de registro:", error);
     }
+  }
+  
+
+  validateEmail(email: string): boolean {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
     
 
