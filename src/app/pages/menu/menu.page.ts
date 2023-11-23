@@ -81,9 +81,9 @@ export class MenuPage implements OnInit {
 }
 
 
-getWeather() {
+/* getWeather() {
   this.weatherService.getWeather().subscribe((data) => {
     this.weatherData = data;
   });
-}
+} */
 }

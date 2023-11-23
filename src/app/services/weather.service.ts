@@ -11,10 +11,10 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  getWeather() {
+/*   getWeather() {
     const apiKey = environment.openWeatherMapApiKey;
     // Modifica la llamada para obtener el clima de Santiago, Chile
     const url = `${this.apiUrl}?q=Santiago,CL&appid=${apiKey}`;
     return this.http.get(url);
-  }
+  } */
 }
